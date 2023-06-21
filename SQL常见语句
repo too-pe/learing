@@ -9,6 +9,8 @@ distinct用于选取非重复行, 如 select distinct column1 from database
 5. insert
 向某某字段插入新的数据，如
 insert into database (column1,column2,column3,...) //如果是全插入这个字段内容可以省略 values (value1,value2,value3,...)
+向新表插入新列，如
+insert column1,column2 into newDatabase from oldDatabase
 6. update
 修改数据，如
 update database set column1 = value1, column2 = value2, ... where condition //在修改中条件限制很重要，一定要注意！
@@ -43,3 +45,13 @@ full join：不管能不能对齐都返回
 将多个表的某些共同字段的【不同】值选取出来
 如select column from database1 union select column from database2
 如果是union all的话则会返回所有值不会区分是否相同
+15. create
+添加一个数据表，如create database
+CREATE TABLE table_name
+(
+column_name1 data_type(size),
+column_name2 data_type(size),
+column_name3 data_type(size),
+....
+);
+16. 

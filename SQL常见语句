@@ -1,0 +1,45 @@
+1. select
+选取字段，如select column1, column2, column3... from database
+2. distinct
+distinct用于选取非重复行, 如 select distinct column1 from database
+3. where
+条件查询，如 select * from database where condition
+4. order
+排序，如order by column1, column2, ... asc|desc，asc表示顺着排，desc表示倒着排
+5. insert
+向某某字段插入新的数据，如
+insert into database (column1,column2,column3,...) //如果是全插入这个字段内容可以省略 values (value1,value2,value3,...)
+6. update
+修改数据，如
+update database set column1 = value1, column2 = value2, ... where condition //在修改中条件限制很重要，一定要注意！
+7. delete
+删除行数据，如delete from database where condition
+8. limit
+限制返回的数据数量，如limit number，number就是限制数量
+9. like
+模糊查询，如select * from database where id like "%k%"
+几种模糊查询方式，"k%"代表查询首字母是k的数据，"%k"代表查询尾字母是k的数据，
+"%k%"代表查询包含字母是k的数据，"_k"代表第一个字母任意，但第二个字母是k的数据，
+10. in
+可以在条件查询的时候包含多个值
+如select * from database where column in (value1, value2)
+11. between
+选取介于两个值之间的数据，如
+select * from database where column between value1 and value2
+12. as
+可以给字段和表重新起一个名字，看起来可读性更强（不改变源数据），如
+select column as c from database，select column from database as d
+13. join
+将多个表的字段合并，有多种合并方法
+select database1.column1,database2.column1 from database1 join database2 on database1.column1 = database2.column1
+意思是database1和databse2合并，对齐方式是database1.column1的行对齐databse2.column1的行，最后显示column1,column2,column3这三个字段的数据
+几种合并方法：
+left join：左表的行不管能不能对齐右表的行都返回
+right join：右表的行不管能不能对齐左表都返回
+inner join：只返回两表能对齐的行
+full join：不管能不能对齐都返回
+无法对齐的数据将置为null
+14. union
+将多个表的某些共同字段的【不同】值选取出来
+如select column from database1 union select column from database2
+如果是union all的话则会返回所有值不会区分是否相同
